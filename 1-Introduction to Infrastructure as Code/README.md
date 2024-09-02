@@ -32,7 +32,7 @@ Once provision, the systems still have to go through different teams with a lot 
 
 # Infrastructure as Code
 
-![ScreenShot](/assets/maxresdefault (1).jpg)
+![ScreenShot](/assets/maxresdefaul.jpg)
 
 **ec2.sh**
 ```sh
@@ -81,3 +81,4 @@ This code is an example of how to use the amazon.aws.ec2 module in Ansible, an i
 
 # Types of IAC Tools
 
+![ScreenShot](/assets/Capture1.PNG)
