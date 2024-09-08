@@ -49,6 +49,9 @@ resource "aws_instance" "webserver" {
   ami           = "ami-0edab43b6fa892279"
   instance_type = "t2.micro"
 }
+
+# Amazon Machine Images
+# “t2.micro": This is an instance type with modest resources (1 vCPU and 1 GB RAM), suitable for tests, small projects or low-load applications.
 ```
 In this example:
 
@@ -75,4 +78,50 @@ Here is another example where we'll be making use of Ansible to provision three 
 ![ScreenShot](/assets/Capture1.PNG)
 
 # Why Terraform?
+
+Terraform is a popular **IaC tool**, which is specifically useful as an infrastructure provisioning tool. Terraform is a free and open-source tool, which is developed by Hashicorp. It installs as a single binary, which can be **set up very quickly, allowing us to build, manage, and destroy infrastructure in a matter of minutes**.
+
+Terraform offers extensive support for various **cloud providers**, allowing organizations to manage infrastructure across different environments seamlessly, enabling multi-cloud or hybrid strategies.
+
+HCL supports a **declarative approach** to infrastructure provisioning. This is also the reason to learn and use Terraform as it is easy to understand also.
+
+![ScreenShot](/assets/terraform-1.png)
+
+# HashiCorp Configuration Language
+
+Terraform uses HCL, which stands for Hashicorp Configuration Language, which is a simple **declarative language** to define the infrastructure resources to be provisioned as blocks of code. All infrastructure resources can be defined within configuration files that has **a.tf** file extension. The configuration syntax is easy to read and write and pick up for a beginner. This sample code is used to provision a new EC2 instance on the AWS Cloud.
+
+**main.tf**
+```hcl
+resource "aws_instance" "webserver" {
+ami = "ami-0edab43b6fa892279"
+instance_type = "t2.micro"
+}
+
+resource "aws_s3_bucket" "finance" {
+  bucket = "finanace-21092020"
+  tags = {
+    Description = "Finance and Payroll"
+  }
+}
+
+resource "aws_iam_user" "admin-user" {
+  name = "lucy"
+  tags = {
+    Description = "Team Leader"
+  }
+}
+```
+
+# Terraform Workflow
+
+![ScreenShot](/assets/Terraformworkflow.PNG)
+
+Terraform works in three phases, **init**, **plan**, and **apply**. 
+
+During the **init phase**, Terraform initializes the project and identifies the providers to be used for the target environment. 
+
+During the **plan phase**, Terraform drafts a plan to get to the target state and then 
+
+in the **apply phase**, Terraform makes the necessary changes required on the target environment to bring it to the desired state.
 
