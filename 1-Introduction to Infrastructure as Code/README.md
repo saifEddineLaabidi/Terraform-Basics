@@ -198,3 +198,13 @@ The resources created (such as an EC2 “webserver” instance), their attribute
 * Consul
 * Terraform Cloud
 
+### Terraform Import
+
+![ScreenShot](/assets/importtrf.png)
+
+In Terraform, the **terraform import** command lets you **import existing resources** into your Terraform configuration without having to recreate them. Basically, if you already have infrastructure (e.g. virtual machines, databases, networks, etc.) managed outside Terraform, this command lets you integrate these resources into Terraform code.
+
+```terraform
+terraform import <type_de_ressource>.<nom_de_la_ressource> <identifiant_de_la_ressource>
+terraform import aws_instance.example i-12345678
+```
