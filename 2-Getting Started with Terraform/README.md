@@ -46,4 +46,4 @@ The **filename** and **content** in the block are called an **argument**.
 
 ![ScreenShot](/assets/hclbaiscs.PNG)
 
-![ScreenShot](/assets/hclbaiscs1.PNG)
+![ScreenShot](/assets/hclbaiscs5.PNG)
