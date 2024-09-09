@@ -29,3 +29,21 @@ A resource is an object that Terraform manages. It could be a file on a local ho
 
 # HCL Basics
 
+```sh
+$ mkdir /root/terraform-local-file
+$ cd /root/terraform-local-file
+```
+```hcl
+resource "local_file" "pet" {
+  filename = "/root/pets.txt"
+  content = "We love pets!"
+}
+```
+
+Here in the above HCL the **"resource"** is the **Block Name**, **"local_file"** is the **Resource Type**, and **"pet"** is the **resource name**.
+
+The **filename** and **content** in the block are called an **argument**.
+
+![ScreenShot](/assets/hclbaiscs.PNG)
+
+![ScreenShot](/assets/hclbaiscs1.PNG)
