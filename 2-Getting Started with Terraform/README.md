@@ -44,6 +44,23 @@ Here in the above HCL the **"resource"** is the **Block Name**, **"local_file"**
 
 The **filename** and **content** in the block are called an **argument**.
 
+
 ![ScreenShot](/assets/hclbaiscs.PNG)
 
+The HCL file consists of blocks and arguments. A block is defined within curly braces and it contains a set of arguments in key value pair format representing the configuration data. But what is a block and what arguments does it contain? In its simplest form, a block in Terraform contains information about the infrastructure platform and a set of resources within that platform that we want to create.
+
 ![ScreenShot](/assets/hclbaiscs5.PNG)
+
+Terraform supports many Providers and each provider has its own resource type and in that resource type, they have their own argument. We do not need to memorize it we can simply check the documentation provided by the hashi corp.
+
+
+![ScreenShot](/assets/hclbaiscs1.PNG)
+![ScreenShot](/assets/hclbaiscs3.PNG)
+![ScreenShot](/assets/hclbaiscs4.PNG)
+![ScreenShot](/assets/hclbaiscs6.PNG)
+![ScreenShot](/assets/hclbaiscs7.PNG)
+![ScreenShot](/assets/hclbaiscs8.PNG)
+![ScreenShot](/assets/hclbaiscs9.PNG)
+![ScreenShot](/assets/hclbaiscs10.PNG)
+
+# Update and Destroy Infrastructure
