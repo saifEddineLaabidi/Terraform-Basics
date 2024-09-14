@@ -91,12 +91,22 @@ Earlier, we mentioned that Terraform supports over 100 providers. for examples *
 
 # Update and Destroy Infrastructure
 
+Now let us see how we can update and destroy this resource using terraform. First, let us try to update this resource. Let us add in a file permission argument to update the permission of the file to 0700 instead of the default value of 0777. This will remove any permission for everyone else except the owner of the file.
+
 ![ScreenShot](/assets/hclbaiscs11.PNG)
 
+Now, if we run terraform plan, we will see an output like this.
+From the output we can see that the resource will be replaced. The- + symbol in the beginning of the resource name in the plan implies that it will be deleted and then recreated. The line with the command that reads forces replacement is responsible for the deletion and recreation, and in this example this is caused by the file permission argument that we added to the configuration file even though the change we made was trivial. Terraform will delete the old file, and then create a new file with the updated permissions, this type of infrastructure is called an **immutable infrastructure**.
+
 ![ScreenShot](/assets/hclbaiscs12.PNG)
+
+If you want to go ahead with the change, use the terraform apply command and then type yes when prompted.
+Upon confirmation, the existing file is deleted and recreated with the new permissions.
 
 ![ScreenShot](/assets/hclbaiscs13.PNG)
 
 ![ScreenShot](/assets/hclbaiscs14.PNG)
+
+To delete the infrastructure completely, run the terraform destroy command.
 
 ![ScreenShot](/assets/hclbaiscs15.PNG)
