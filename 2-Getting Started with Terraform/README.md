@@ -54,9 +54,18 @@ The HCL file consists of blocks and arguments. A block is defined within curly b
 Terraform supports many Providers and each provider has its own resource type and in that resource type, they have their own argument. We do not need to memorize it we can simply check the documentation provided by the hashi corp.
 
 
+Here is an example of a resource file created for provisioning and **AWS EC2 instance**. The resource type is **aws_instance**. We name the resource **web server** and the arguments that we have used here is the **ami id** and the **instance type**.
+
 ![ScreenShot](/assets/hclbaiscs1.PNG)
+
+Here is another example of a **resource file** used to create an **AWS S3 bucket**. The resource type in this case is **aws_s3_bucket**. The **resource name** that we have chosen is **data** and the arguments that we have provided is the **bucket name** and the **ACL**.
+
 ![ScreenShot](/assets/hclbaiscs3.PNG)
+
+A simple Terraform workflow consists of four steps. First, write the configuration file. Next, run the **Terraform init** command and after that, review the execution plan using the **Terraform plan** command. Finally, once we are ready, apply the changes using the **Terraform apply** command.
+
 ![ScreenShot](/assets/hclbaiscs4.PNG)
+
 ![ScreenShot](/assets/hclbaiscs6.PNG)
 ![ScreenShot](/assets/hclbaiscs7.PNG)
 ![ScreenShot](/assets/hclbaiscs8.PNG)
