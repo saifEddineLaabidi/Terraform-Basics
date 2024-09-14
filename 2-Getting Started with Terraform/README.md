@@ -53,7 +53,6 @@ The HCL file consists of blocks and arguments. A block is defined within curly b
 
 Terraform supports many Providers and each provider has its own resource type and in that resource type, they have their own argument. We do not need to memorize it we can simply check the documentation provided by the hashi corp.
 
-
 Here is an example of a resource file created for provisioning and **AWS EC2 instance**. The resource type is **aws_instance**. We name the resource **web server** and the arguments that we have used here is the **ami id** and the **instance type**.
 
 ![ScreenShot](/assets/hclbaiscs1.PNG)
@@ -66,10 +65,38 @@ A simple Terraform workflow consists of four steps. First, write the configurati
 
 ![ScreenShot](/assets/hclbaiscs4.PNG)
 
+This command will check the **configuration file** and **initialize** the working directory containing the **.tf file**. One of the first things that this command does is to understand that we are making use of the **local provider** based on the **resource type** declared in the resource block. It will then **download the plug in** to be able to work on the resources declared in the **.tf file**. From the output of this command, we can see that **Terraform init** has installed a plug in called local. 
+
 ![ScreenShot](/assets/hclbaiscs6.PNG)
+
+Next, we are ready to create the resource. But before we do that, if we want to see the **execution plan** that will be carried out by Terraform, we can use the command **Terraform plan**. This command will show the actions that will be carried out by Terraform to create the resource. 
+The output has a plus symbol next to the local file type resource called pet. This includes all the arguments that we specified in the.tf file for creating the resource. But you'll also notice that some default or optional arguments, which we did not specifically declare in the configuration file is also displayed on the screen. The plus symbol implies that the **resource will be created**. Now remember, this step will not create the infrastructure resource yet. This information is provided for the user to review and ensure that all the actions to be performed in this execution plan is desired.
+
 ![ScreenShot](/assets/hclbaiscs7.PNG)
+
+After the review, we can create the resource. To do this, we will make use of the **Terraform apply** command. This command will display the execution plan once again, and it will then ask the user to confirm by typing yes to proceed. Once we confirm, it will proceed with the creation of the resource, which in this case, is a file
+
 ![ScreenShot](/assets/hclbaiscs8.PNG)
+
+We can also run the **terraform show** command within the configuration directory to see the details of the resource that we just created. This command **inspects the state file** and displays the resource details.
+
 ![ScreenShot](/assets/hclbaiscs9.PNG)
+
+**How do you know what types of resources are available?** 
+**How do you know what arguments are expected by the resource?**
+
+Earlier, we mentioned that Terraform supports over 100 providers. for examples **AWS** to deploy resources in **Amazon AWS Cloud**, **Azure**, **GCP** ,etc . Each of these providers have a **unique list of resources** that can be created on that specific platform. Each resource can have a number of **required or optional arguments** that are needed to create that resource.
+
 ![ScreenShot](/assets/hclbaiscs10.PNG)
 
 # Update and Destroy Infrastructure
+
+![ScreenShot](/assets/hclbaiscs11.PNG)
+
+![ScreenShot](/assets/hclbaiscs12.PNG)
+
+![ScreenShot](/assets/hclbaiscs13.PNG)
+
+![ScreenShot](/assets/hclbaiscs14.PNG)
+
+![ScreenShot](/assets/hclbaiscs15.PNG)
