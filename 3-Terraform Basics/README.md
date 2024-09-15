@@ -117,13 +117,13 @@ In Terraform, the set type is a collection containing only unique elements, in n
 
 6. Objects
 
-![ScreenShot](/assets/var9.PNG)
+![ScreenShot](/assets/var10.PNG)
 
 7. Tuples
 
 A tuple in Terraform is a collection of values whose type and position are fixed. Unlike a list, where all elements must be of the same type, a tuple allows different types to be combined, while maintaining the order of the elements.
 
-![ScreenShot](/assets/var10.PNG)
+![ScreenShot](/assets/var9.PNG)
 
 
 
