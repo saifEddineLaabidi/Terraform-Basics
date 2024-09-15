@@ -35,3 +35,42 @@ terraform {
 }
 
 ```
+
+# Configuration Directory
+
+Apart from **main.tf** we can create many other files which have their own purpose for making them more manageable and readable.
+
+such as the **variables TF**, **outputs TF** and **providers TF**. We will talk more about these files in the later sections of this course.
+
+![ScreenShot](/assets/conf.PNG)
+
+# Multiple Providers 
+
+Terraform also supports the use of **multiple providers** within the same configuration. To illustrate this, let's make use of another provider called **random**. This provider allows us to create random resources, such as a random ID, a random integer, a random password, etc. Let us see how to use this provider and create a resource called random pet. This resource type will generate a random pet name when applied. By making use of the documentation, we can add a resource block to the existing main.TF file like this. Here, we are making use of the resource type called random pet
+
+This resource is often used to generate unique random names for resources such as instances, buckets or clusters, and avoid name collisions in your infrastructure.
+
+![ScreenShot](/assets/MultipleProviders1.PNG)
+![ScreenShot](/assets/MultipleProviders2.PNG)
+![ScreenShot](/assets/MultipleProviders3.PNG)
+
+```hcl
+resource "aws_instance" "ec2_instance" {
+	  ami       =  "ami-0eda277a0b884c5ab" 
+	  instance_type = "t2.large"
+}
+
+resource "aws_ebs_volume" "ec2_volume" {
+	  availability_zone = "eu-west-1"
+	  size  =    10
+}
+
+resource "kubernetes_namespace" "dev" {
+  metadata {
+    name = "development"
+  }
+}
+
+```
+
+# Define Input Variables
