@@ -89,5 +89,43 @@ By using variables in this example, you refer to these values dynamically with v
 
 ![ScreenShot](/assets/var2.PNG)
 
+1. List Variable
+
+List variables allow us to define an ordered collection of values. Lists are enclosed in square brackets [] and can contain elements of any type, including strings, numbers, or even other lists.
+
+![ScreenShot](/assets/var4.PNG)
+
+2. Map Variables
+
+Map variables enable us to define a collection of key-value pairs. Maps are enclosed in curly braces {}, and the keys and values can be of any type.
+
+![ScreenShot](/assets/var5.PNG)
+
+3. List of a Type
+
+![ScreenShot](/assets/var6.PNG)
+
+4. Map of a Type
+
+![ScreenShot](/assets/var7.PNG)
+
+5. Set
+
+In Terraform, the set type is a collection containing only unique elements, in no specific order. It guarantees that each value in the group is present only once, without duplication.
+
+![ScreenShot](/assets/var8.PNG)
+
+6. Objects
+
+![ScreenShot](/assets/var9.PNG)
+
+7. Tuples
+
+A tuple in Terraform is a collection of values whose type and position are fixed. Unlike a list, where all elements must be of the same type, a tuple allows different types to be combined, while maintaining the order of the elements.
+
+![ScreenShot](/assets/var10.PNG)
+
+
+
 
 
