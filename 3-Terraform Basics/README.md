@@ -163,9 +163,89 @@ The **`.auto.tfvars`** and **`.auto.tfvars.json`** files are very useful for def
 
 ![ScreenShot](/assets/vars6.PNG)
 
-5.**Variable Definition Precedence**
+# Variable Definition Precedence**
 
 The order of precedence for variable sources is as follows with later sources taking precedence over earlier ones:
 
 ![ScreenShot](/assets/ordrevar.PNG)
+
+# Resource Attribute Reference
+
+We can also use the reference as an attribute in the resources block. We can look at which attribute it is returning and use it according to using the command $(resource_type.reource_name.attribute)
+
++ **Resource Attribute Reference**: Allows values from one resource to be used in another resource.
+
++ **Order of Operations**: Terraform understands the dependencies between resources and will create them in the correct order. For example, it will first generate the pet name (random_pet.my-pet) before creating the file (local_file.pet) which uses this name.
+
++ This mechanism ensures that resources are interconnected and that their attributes can be managed and referenced dynamically.
+
++ The value of random_pet.my-pet.id is generated dynamically when the random_pet resource is created. Terraform replaces this value in the content of the local_file resource.
+
+![ScreenShot](/assets/varref.PNG)
+
+# Resource Dependencies
+
+1. **Implicit Dependency**
+
+![ScreenShot](/assets/implicite.PNG)
+
+In Terraform, implicit dependencies are automatically deduced by the Terraform engine as a function of connections between resources via variables or attributes; it is not necessary to explicitly declare a dependency using **`depends_on`**.
+
+```hcl
+provider "aws" {
+  region = var.aws_region
+}
+
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+}
+
+resource "aws_instance" "example_a" {
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t2.micro"
+}
+
+resource "aws_instance" "example_b" {
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t2.micro"
+}
+
+resource "aws_eip" "ip" {
+  vpc      = true
+  instance = aws_instance.example_a.id
+}
+```
+
+2. **Explicit Dependency**
+
+![ScreenShot](/assets/explicite.PNG)
+
+An explicit dependency in Terraform is defined manually using the **`depends_on`** field. It is used to force Terraform to execute a resource after one or more other resources, even if there is no direct relationship via variables or attributes.
+
+```hcl
+resource "aws_s3_bucket" "example" { }
+
+resource "aws_instance" "example_c" {
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t2.micro"
+
+  depends_on = [aws_s3_bucket.example]
+}
+
+module "example_sqs_queue" {
+  source  = "terraform-aws-modules/sqs/aws"
+  version = "3.3.0"
+
+  depends_on = [aws_s3_bucket.example, aws_instance.example_c]
+}
+
+```
+
+# Output Variables
 
