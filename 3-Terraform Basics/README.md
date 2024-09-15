@@ -74,3 +74,20 @@ resource "kubernetes_namespace" "dev" {
 ```
 
 # Define Input Variables
+
+**`variables.tf`**, is where we define the input variables for your Terraform configuration. In this file, we define the variables, their types, default values, and any constraints or validation rules.
+
+There are many types of variables in terraforming:
+
+![ScreenShot](/assets/var3.PNG)
+
+variables make Terraform code more flexible, maintainable and easily adaptable to different contexts and reusable and modifiable without having to change the source code each time.
+
+By using variables in this example, you refer to these values dynamically with var.filename and var.content. If you need to change the value of filename or content, simply modify the variables in a separate file, or pass them as parameters when running Terraform. This allows you to factorise and parameterise the code without modifying the main file.
+
+![ScreenShot](/assets/var1.PNG)
+
+![ScreenShot](/assets/var2.PNG)
+
+
+
