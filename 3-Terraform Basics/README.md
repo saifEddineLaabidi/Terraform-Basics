@@ -79,51 +79,51 @@ resource "kubernetes_namespace" "dev" {
 
 There are many types of variables in terraforming:
 
-![ScreenShot](/assets/var3.PNG)
+![ScreenShot](/assets/var/var3.PNG)
 
 variables make Terraform code more flexible, maintainable and easily adaptable to different contexts and reusable and modifiable without having to change the source code each time.
 
 By using variables in this example, you refer to these values dynamically with var.filename and var.content. If you need to change the value of filename or content, simply modify the variables in a separate file, or pass them as parameters when running Terraform. This allows you to factorise and parameterise the code without modifying the main file.
 
-![ScreenShot](/assets/var1.PNG)
+![ScreenShot](/assets/var/var1.PNG)
 
-![ScreenShot](/assets/var2.PNG)
+![ScreenShot](/assets/var/var2.PNG)
 
 1. **List Variable**
 
 List variables allow us to define an ordered collection of values. Lists are enclosed in square brackets [] and can contain elements of any type, including strings, numbers, or even other lists.
 
-![ScreenShot](/assets/var4.PNG)
+![ScreenShot](/assets/var/var4.PNG)
 
 2. **Map Variables**
 
 Map variables enable us to define a collection of key-value pairs. Maps are enclosed in curly braces {}, and the keys and values can be of any type.
 
-![ScreenShot](/assets/var5.PNG)
+![ScreenShot](/assets/var/var5.PNG)
 
 3. **List of a Type**
 
-![ScreenShot](/assets/var6.PNG)
+![ScreenShot](/assets/var/var6.PNG)
 
 4. **Map of a Type**
 
-![ScreenShot](/assets/var7.PNG)
+![ScreenShot](/assets/var/var7.PNG)
 
 5. **Set**
 
 In Terraform, the set type is a collection containing only unique elements, in no specific order. It guarantees that each value in the group is present only once, without duplication.
 
-![ScreenShot](/assets/var8.PNG)
+![ScreenShot](/assets/var/var8.PNG)
 
 6. **Objects**
 
-![ScreenShot](/assets/var10.PNG)
+![ScreenShot](/assets/var/var10.PNG)
 
 7. **Tuples**
 
 A tuple in Terraform is a collection of values whose type and position are fixed. Unlike a list, where all elements must be of the same type, a tuple allows different types to be combined, while maintaining the order of the elements.
 
-![ScreenShot](/assets/var9.PNG)
+![ScreenShot](/assets/var/var9.PNG)
 
 # Using Variables in Terraform
 
@@ -131,23 +131,23 @@ A tuple in Terraform is a collection of values whose type and position are fixed
 
 In interactive mode, Terraform variables can be supplied by the user at runtime
 
-![ScreenShot](/assets/vars1.PNG)
+![ScreenShot](/assets/var/vars1.PNG)
 
 If no value is specified, Terraform will ask the user to enter values for these variables when run with the terraform apply or terraform plan command.
 
-![ScreenShot](/assets/vars2.PNG)
+![ScreenShot](/assets/var/vars2.PNG)
 
 2. **Command Line Flags**
 
 you can pass variable values directly on the command line
 
-![ScreenShot](/assets/vars3.PNG)
+![ScreenShot](/assets/var/vars3.PNG)
 
 3. **Environment Variables**
 
 By using the TF_VAR_ export commands, you define environment variables which Terraform can use directly without having to request them interactively or pass values with -var
 
-![ScreenShot](/assets/vars4.PNG)
+![ScreenShot](/assets/var/vars4.PNG)
 
 + Environment variables allow you to pass values to Terraform variables without including them directly in the .tf file or using .tfvars files.
 
@@ -157,17 +157,17 @@ By using the TF_VAR_ export commands, you define environment variables which Ter
 
 You can also store the values of the variables in a **`.tfvars`** file and pass it at runtime.
 
-![ScreenShot](/assets/vars5.PNG)
+![ScreenShot](/assets/var/vars5.PNG)
 
 The **`.auto.tfvars`** and **`.auto.tfvars.json`** files are very useful for defining variable values automatically and without explicit user intervention when executing Terraform commands. They facilitate the management of variables, especially in automated environments.
 
-![ScreenShot](/assets/vars6.PNG)
+![ScreenShot](/assets/var/vars6.PNG)
 
 # Variable Definition Precedence**
 
 The order of precedence for variable sources is as follows with later sources taking precedence over earlier ones:
 
-![ScreenShot](/assets/ordrevar.PNG)
+![ScreenShot](/assets/var/ordrevar.PNG)
 
 # Resource Attribute Reference
 
